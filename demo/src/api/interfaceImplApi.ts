@@ -29,7 +29,7 @@ type ResponseImpl = {
 
 export const createInterfaceImpl = (data: CreateInterfaceImpl) => {
     return request<ResponseImpl>({
-        url: `/v1/interface/impl/`,
+        url: `/v1/interface/impl`,
         method: 'POST',
         data: data
     })

@@ -43,14 +43,14 @@ type ResponseSubId = {
 export const createSub = (data: EditSub) => {
   return request<ResponseSubList>({
     method: 'POST',
-    url: `/v1/collection/sub/`,
+    url: `/v1/collection/sub`,
     data: data
   })
 }
 export const subList = (condition: Condition) => {
   return request<ResponseSubList>({
     method: 'GET',
-    url: `/v1/collection/sub/`,
+    url: `/v1/collection/sub`,
     params: condition
   })
 }
@@ -78,7 +78,7 @@ export const exchangeEnable = (id: number, enable: string) => {
 export const createMain = (data: EditSub) => {
   return request<ResponseSubList>({
     method: 'POST',
-    url: `/v1/collection/main/`,
+    url: `/v1/collection/main`,
     data: data
   })
 }

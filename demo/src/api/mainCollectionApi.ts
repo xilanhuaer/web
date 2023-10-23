@@ -38,7 +38,7 @@ export type ResponseMainId = {
 export const mainList = (condition: Condition) => {
   return request<ResponseMainList>({
     method: 'GET',
-    url: `/v1/collection/main/`,
+    url: `/v1/collection/main`,
     params: condition
   })
 }
@@ -66,7 +66,7 @@ export const exchangeEnable = (id: number, enable: string) => {
 export const createMain = (data: EditMain) => {
   return request<ResponseMainList>({
     method: 'POST',
-    url: `/v1/collection/main/`,
+    url: `/v1/collection/main`,
     data: data
   })
 }

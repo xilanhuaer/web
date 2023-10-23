@@ -49,7 +49,7 @@ export type ResponseId = {
 export const interfaceList = (condition: Condition) => {
   return request<ResponseList>({
     method: 'GET',
-    url: `/v1/interface/`,
+    url: `/v1/interface`,
     params: condition
   })
 }
@@ -70,7 +70,7 @@ export const updateInterface = (data: EditInterface) => {
 export const createInterface = (data: EditInterface) => {
   return request<ResponseList>({
     method: 'POST',
-    url: '/v1/interface/',
+    url: '/v1/interface',
     data: data
   })
 }
