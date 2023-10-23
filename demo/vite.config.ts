@@ -10,18 +10,7 @@ import path from 'path'
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 
 
-// https://vitejs.dev/config/
 export default defineConfig({
-
-  server: {
-    proxy: {
-      '/v1': {
-        target: 'http://172.17.0.2:8989',
-        changeOrigin: true,
-      },
-    }
-  },
-
 
   plugins: [
 
