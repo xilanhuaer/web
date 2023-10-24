@@ -49,7 +49,7 @@ export type ResponseId = {
 export const interfaceList = (condition: Condition) => {
   return request<ResponseList>({
     method: 'GET',
-    url: `/v1/interface`,
+    url: `/v1/interface/`,
     params: condition
   })
 }

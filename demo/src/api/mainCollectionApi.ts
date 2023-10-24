@@ -38,7 +38,7 @@ export type ResponseMainId = {
 export const mainList = (condition: Condition) => {
   return request<ResponseMainList>({
     method: 'GET',
-    url: `/v1/collection/main`,
+    url: `/v1/collection/main/`,
     params: condition
   })
 }

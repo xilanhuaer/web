@@ -50,7 +50,7 @@ export const createSub = (data: EditSub) => {
 export const subList = (condition: Condition) => {
   return request<ResponseSubList>({
     method: 'GET',
-    url: `/v1/collection/sub`,
+    url: `/v1/collection/sub/`,
     params: condition
   })
 }
