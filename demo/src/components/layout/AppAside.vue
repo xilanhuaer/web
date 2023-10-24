@@ -10,6 +10,26 @@
             </el-icon>
             <span>首页</span>
           </el-menu-item>
+          <el-sub-menu index="5">
+            <template #title>
+              <el-icon>
+                <SvgIcon name="user" fill="white" />
+              </el-icon>
+              <span>个人中心</span>
+            </template>
+            <el-menu-item index="5-1" route="/register">
+              <el-icon>
+                <SvgIcon name="register" fill="white" />
+              </el-icon>
+              <span>用户注册</span>
+            </el-menu-item>
+            <el-menu-item index="5-2" route="/login">
+              <el-icon>
+                <SvgIcon name="login" fill="white" />
+              </el-icon>
+              <span>用户登录</span>
+            </el-menu-item>
+          </el-sub-menu>
           <el-sub-menu index="2">
             <template #title>
               <el-icon>
