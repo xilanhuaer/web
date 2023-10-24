@@ -11,18 +11,10 @@ const condition = reactive({
     password: '',
 })
 const submit = async (loginData: Login) => {
-
     useStore.userLogin(loginData);
-
-    // const { data } = await login(loginData)
-    // if (data.code === 200) {
-
-    //     router.replace({
-    //         path: '/'
-    //     })
-    // } else {
-    //     ElMessage.error(`${data.message}`)
-    // }
+    router.replace({
+        path: '/'
+    })
 }
 const checkRegister = () => {
     router.replace({
