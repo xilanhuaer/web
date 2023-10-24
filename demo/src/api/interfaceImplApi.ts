@@ -31,6 +31,9 @@ export const createInterfaceImpl = (data: CreateInterfaceImpl) => {
     return request<ResponseImpl>({
         url: `/v1/interface/impl`,
         method: 'POST',
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        },
         data: data
     })
 }
@@ -38,6 +41,9 @@ export const updateInterfaceImpl = (data: CreateInterfaceImpl) => {
     return request<ResponseImpl>({
         url: `/v1/interface/impl/${data.id}`,
         method: 'PUT',
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        },
         data: data
     })
 }

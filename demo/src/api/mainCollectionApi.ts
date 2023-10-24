@@ -39,12 +39,18 @@ export const mainList = (condition: Condition) => {
   return request<ResponseMainList>({
     method: 'GET',
     url: `/v1/collection/main/`,
+    headers: {
+      'Authorization': localStorage.getItem('token')
+    },
     params: condition
   })
 }
 export const mainId = (id: number) => {
   return request<ResponseMainId>({
     method: 'GET',
+    headers: {
+      'Authorization': localStorage.getItem('token')
+    },
     url: `/v1/collection/main/${id}`
   })
 }
@@ -52,6 +58,9 @@ export const updateMain = (data: EditMain) => {
   return request<ResponseMainList>({
     method: 'PUT',
     url: `/v1/collection/main/${data.id}`,
+    headers: {
+      'Authorization': localStorage.getItem('token')
+    },
     data: data
   })
 }
@@ -59,6 +68,9 @@ export const exchangeEnable = (id: number, enable: string) => {
   return request<ResponseMainList>({
     method: 'PUT',
     url: `/v1/collection/main/enable/${id}`,
+    headers: {
+      'Authorization': localStorage.getItem('token')
+    },
     data: `{"enabled":"${enable}"}`
   })
 }
@@ -67,6 +79,9 @@ export const createMain = (data: EditMain) => {
   return request<ResponseMainList>({
     method: 'POST',
     url: `/v1/collection/main`,
+    headers: {
+      'Authorization': localStorage.getItem('token')
+    },
     data: data
   })
 }

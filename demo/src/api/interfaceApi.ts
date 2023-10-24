@@ -50,18 +50,27 @@ export const interfaceList = (condition: Condition) => {
   return request<ResponseList>({
     method: 'GET',
     url: `/v1/interface/`,
+    headers: {
+      'Authorization': localStorage.getItem('token')
+    },
     params: condition
   })
 }
 export const interfaceId = (id: number) => {
   return request<ResponseId>({
     method: 'GET',
+    headers: {
+      'Authorization': localStorage.getItem('token')
+    },
     url: `/v1/interface/${id}`
   })
 }
 export const updateInterface = (data: EditInterface) => {
   return request<ResponseList>({
     method: 'PUT',
+    headers: {
+      'Authorization': localStorage.getItem('token')
+    },
     url: `/v1/interface/${data.id}`,
     data: data
   })
@@ -70,6 +79,9 @@ export const updateInterface = (data: EditInterface) => {
 export const createInterface = (data: EditInterface) => {
   return request<ResponseList>({
     method: 'POST',
+    headers: {
+      'Authorization': localStorage.getItem('token')
+    },
     url: '/v1/interface',
     data: data
   })
@@ -78,6 +90,9 @@ export const createInterface = (data: EditInterface) => {
 export const exchangeEnable = (id: number, enable: string) => {
   return request<ResponseList>({
     method: 'PUT',
+    headers: {
+      'Authorization': localStorage.getItem('token')
+    },
     url: `/v1/interface/enable/${id}`,
     data: `{"enabled":"${enable}"}`
   })
