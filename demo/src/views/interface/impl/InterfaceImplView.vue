@@ -84,9 +84,9 @@ const editInterfaceImpl = ref<InstanceType<typeof EditInterfaceImpl> | null>()
                     <el-link :underline="false" type="primary">{{ row.id }}</el-link>
                 </template>
             </ElTableColumn>
-            <ElTableColumn prop="name" label="接口实现名称" />
-            <ElTableColumn prop="path" label="请求路径" />
-            <ElTableColumn prop="interface_name" label="接口名称" />
+            <ElTableColumn prop="name" label="接口实现名称" show-overflow-tooltip />
+            <ElTableColumn prop="path" label="请求路径" show-overflow-tooltip />
+            <ElTableColumn prop="interface_name" label="接口名称" show-overflow-tooltip />
             <ElTableColumn prop="type" label="请求类型" />
             <ElTableColumn prop="params" label="请求参数" show-overflow-tooltip />
             <ElTableColumn prop="headers" label="请求头" show-overflow-tooltip />
