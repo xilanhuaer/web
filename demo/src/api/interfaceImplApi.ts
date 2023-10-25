@@ -65,6 +65,11 @@ type ResponseImpl = {
     data: ResponseImplData
     message: String
 }
+export type InterfaceDataId = {
+    code: Number
+    data: InterfaceImpl
+    message: String
+}
 
 
 export const createInterfaceImpl = (data: CreateInterfaceImpl) => {
@@ -85,6 +90,16 @@ export const interfaceImplList = (condition: Condition) => {
             'Authorization': localStorage.getItem('token')
         },
         params: condition
+    })
+}
+
+export const interfaceImpl = (id: Number) => {
+    return request<InterfaceDataId>({
+        url: `/v1/interface/impl/${id}`,
+        method: 'GET',
+        headers: {
+            'Authorization': localStorage.getItem('token')
+        }
     })
 }
 export const updateInterfaceImpl = (data: CreateInterfaceImpl) => {

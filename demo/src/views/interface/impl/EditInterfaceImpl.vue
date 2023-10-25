@@ -4,11 +4,13 @@ import { ref } from 'vue';
 import { queryInterfaces, result } from "@/composables/useInterfaceApi";
 import { queryMain, resultMain } from "@/composables/useMainCollectionApi";
 import { querySub, resultSub } from "@/composables/useSubCollectionApi";
-import { createInterfaceImpl } from "@/api/interfaceImplApi";
+import { createInterfaceImpl, updateInterfaceImpl } from "@/api/interfaceImplApi";
+import { queryInterfaceImplId, resultInterfaceImplId, queryInterfaceImplList } from "@/composables/useInterfaceImplApi";
 
 const dialogFormVisible = ref(false)
 const msgText = ref('')
 const loading = ref(false)
+const isCreate = ref(false)
 
 const initImplData = () => ({
     id: undefined,
@@ -24,14 +26,19 @@ const initImplData = () => ({
     sub_collection_id: undefined,
 })
 const form = reactive(initImplData())
-const initDialog = (id: number) => {
+// 初始化弹窗
+const initDialog = async (id: number) => {
     dialogFormVisible.value = true
     if (id) {
         msgText.value = '更新'
+        await queryInterfaceImplId(id)
+        Object.assign(form, resultInterfaceImplId.value.data)
     } else {
+        isCreate.value = true
         msgText.value = '新建'
     }
 }
+// 根据接口名称查询接口
 const interfaces = (query: string) => {
     if (query) {
         loading.value = true
@@ -39,6 +46,7 @@ const interfaces = (query: string) => {
         loading.value = false
     }
 }
+// 根据集合名称查询主集合
 const mainCollections = (query: string) => {
     if (query) {
         loading.value = true
@@ -46,9 +54,16 @@ const mainCollections = (query: string) => {
         loading.value = false
     }
 }
+// 提交数据
 const onSubmit = async () => {
-    if (form.id) {
-        ElMessage.success
+    if (!isCreate.value) {
+        const { data } = await updateInterfaceImpl(form)
+        if (data.code === 200) {
+            ElMessage.success("更新成功")
+            queryInterfaceImplList
+        } else {
+            ElMessage.error(`${data.message}`)
+        }
     } else {
         const { data } = await createInterfaceImpl(form)
         if (data.code === 200) {

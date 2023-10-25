@@ -101,8 +101,8 @@ const editInterfaceImpl = ref<InstanceType<typeof EditInterfaceImpl> | null>()
             <ElTableColumn prop="main_collection_name" label="所属主集合" show-overflow-tooltip />
             <ElTableColumn prop="sub_collection_name" label="所属子集合" show-overflow-tooltip />
             <el-table-column fixed="right" label="操作" width="120">
-                <template #default>
-                    <el-button link type="primary">
+                <template #default="{ row }">
+                    <el-button link type="primary" @click="($event) => (editInterfaceImpl?.initDialog(row.id))">
                         <SvgIcon name="edit" fill="blue" width="20px" height="20px" />
                     </el-button>
                 </template>
