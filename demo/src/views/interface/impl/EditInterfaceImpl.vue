@@ -60,7 +60,8 @@ const onSubmit = async () => {
         const { data } = await updateInterfaceImpl(form)
         if (data.code === 200) {
             ElMessage.success("更新成功")
-            queryInterfaceImplList
+            dialogFormVisible.value = false
+            queryInterfaceImplList()
         } else {
             ElMessage.error(`${data.message}`)
         }

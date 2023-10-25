@@ -37,7 +37,7 @@ export const resultInterfaceImplId = ref<InterfaceDataId>({
     message: ''
 })
 
-export const queryInterfaceImplList = async (params: Condition) => {
+export const queryInterfaceImplList = async (params: Condition = {}) => {
     Object.assign(condition, params)
     const { data } = await interfaceImplList(condition)
     if (data.code === 200) {

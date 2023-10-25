@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import EditInterfaceImpl from './EditInterfaceImpl.vue';
+import InterfaceImplDetail from './InterfaceImplDetail.vue';
 import { reactive } from 'vue';
 import { queryInterfaceImplList, resultInterfaceImplList } from "@/composables/useInterfaceImplApi";
 import { queryMain, resultMain } from "@/composables/useMainCollectionApi";
@@ -33,6 +34,7 @@ const mainCollections = (query: string) => {
 }
 
 const editInterfaceImpl = ref<InstanceType<typeof EditInterfaceImpl> | null>()
+const interfaceImplDetail = ref<InstanceType<typeof InterfaceImplDetail> | null>()
 </script>
 <template>
     <el-button @click="($event) => editInterfaceImpl?.initDialog(0)">新建实现</el-button>
@@ -81,7 +83,8 @@ const editInterfaceImpl = ref<InstanceType<typeof EditInterfaceImpl> | null>()
         <el-table :data="resultInterfaceImplList.data.list" style="width: 100%">
             <ElTableColumn fixed prop="id" label="id" width="80px">
                 <template #default="{ row }">
-                    <el-link :underline="false" type="primary">{{ row.id }}</el-link>
+                    <el-link @click="($event) => (interfaceImplDetail?.initAndShow(row.id))" :underline="false"
+                        type="primary">{{ row.id }}</el-link>
                 </template>
             </ElTableColumn>
             <ElTableColumn prop="name" label="接口实现名称" show-overflow-tooltip />
@@ -109,6 +112,7 @@ const editInterfaceImpl = ref<InstanceType<typeof EditInterfaceImpl> | null>()
             </el-table-column>
         </el-table>
         <EditInterfaceImpl ref="editInterfaceImpl" />
+        <InterfaceImplDetail ref="interfaceImplDetail" />
     </ElCard>
 </template>
 <style scoped lang="scss">
