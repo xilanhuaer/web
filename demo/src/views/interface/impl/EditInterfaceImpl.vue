@@ -104,8 +104,8 @@ defineExpose({
                     <el-form-item label="接口">
                         <el-select v-model="form.interface_id" filterable remote reserve-keyword placeholder="输入接口名称搜索"
                             :remote-method="interfaces" :loading="loading">
-                            <el-option v-for="item in result.data.list" :key="item.id" :label="item.name"
-                                :value="item.id" />
+                            <el-option v-show="result.data.total > 0" v-for="item in result.data.list" :key="item.id"
+                                :label="item.name" :value="item.id" />
                         </el-select>
                     </el-form-item>
                 </el-col>
@@ -121,8 +121,8 @@ defineExpose({
                     <el-form-item label="主集合">
                         <el-select v-model="form.main_collection_id" filterable remote reserve-keyword
                             placeholder="输入主集合名称搜索" :remote-method="mainCollections" :loading="loading">
-                            <el-option v-for="item in resultMain.data.list" :key="item.id" :label="item.name"
-                                :value="item.id"
+                            <el-option v-show="resultMain.data.total > 0" v-for="item in resultMain.data.list"
+                                :key="item.id" :label="item.name" :value="item.id"
                                 @click="($event) => (querySub({ 'main_collection_id': item.id, 'enabled': '1' }))" />
                         </el-select>
                     </el-form-item>
@@ -130,8 +130,8 @@ defineExpose({
                 <el-col :span="12">
                     <el-form-item label="子集合">
                         <el-select v-model="form.sub_collection_id" placeholder="请选择子集合">
-                            <el-option v-for="item in resultSub.data.list" :key="item.id" :label="item.name"
-                                :value="item.id" />
+                            <el-option v-show="resultSub.data.total > 0" v-for="item in resultSub.data.list" :key="item.id"
+                                :label="item.name" :value="item.id" />
                         </el-select>
                     </el-form-item>
                 </el-col>
