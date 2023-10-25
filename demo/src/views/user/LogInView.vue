@@ -13,7 +13,9 @@ const condition = reactive({
 const submit = async (loginData: Login) => {
     const code = await useStore.userLogin(loginData);
     if (code === 200) {
-        useRouter().replace({ path: '/' })
+        router.replace({
+            path: '/'
+        })
     }
 }
 const checkRegister = () => {

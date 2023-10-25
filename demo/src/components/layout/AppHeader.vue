@@ -27,10 +27,11 @@
 import { useRouter } from 'vue-router';
 import { isCollapse } from './isCollapse';
 import useUserStore from "@/stores/modules/user";
+const router = useRouter()
 const logout = () => {
-  useUserStore().logout
-  useRouter().replace({
-    path: '/login'
+  useUserStore().logout()
+  router.replace({
+    path: 'login'
   })
 }
 </script>
