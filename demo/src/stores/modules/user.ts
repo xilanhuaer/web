@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { login } from "@/api/userApi";
 import type { Login } from "@/api/userApi"
+import { useRouter } from "vue-router";
 const useUserStore = defineStore('User', {
     state: () => {
         return {
@@ -13,6 +14,9 @@ const useUserStore = defineStore('User', {
             if (res.data.code === 200) {
                 this.token = 'Bearer ' + res.data.data.token
                 localStorage.setItem('token', `Bearer ${res.data.data.token}`)
+                useRouter().replace({
+                    path: '/'
+                })
             } else {
                 ElMessage.error(`${res.data.message}`)
             }

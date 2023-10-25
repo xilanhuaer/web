@@ -12,9 +12,6 @@ const condition = reactive({
 })
 const submit = async (loginData: Login) => {
     useStore.userLogin(loginData);
-    router.replace({
-        path: '/'
-    })
 }
 const checkRegister = () => {
     router.replace({

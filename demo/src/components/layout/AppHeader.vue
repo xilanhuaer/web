@@ -17,7 +17,7 @@
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item @click="($event) => (useRouter().replace({ path: '/userinfo' }))">个人中心</el-dropdown-item>
-          <el-dropdown-item @click="useUserStore().logout" divided>退出登录</el-dropdown-item>
+          <el-dropdown-item @click="logout" divided>退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
@@ -27,7 +27,12 @@
 import { useRouter } from 'vue-router';
 import { isCollapse } from './isCollapse';
 import useUserStore from "@/stores/modules/user";
-
+const logout = () => {
+  useUserStore().logout
+  useRouter().replace({
+    path: '/login'
+  })
+}
 </script>
 
 <style scoped lang="scss">
