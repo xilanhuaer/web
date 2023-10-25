@@ -32,7 +32,7 @@ defineExpose({ initAndShow })
                 </el-col>
                 <el-col :span="12">
                     <el-form-item label="接口状态：">
-                        <el-switch v-model="resultInterfaceImplId.data.enabled"
+                        <el-switch :v-model="resultInterfaceImplId.data.enabled"
                             style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949" active-value="1"
                             inactive-value="0" :disabled="true" />
                     </el-form-item>
@@ -41,7 +41,7 @@ defineExpose({ initAndShow })
             <el-row>
                 <el-col>
                     <el-form-item label="请求参数：">
-                        <ElText>{{ resultInterfaceImplId.data.headers }}</ElText>
+                        <ElText>{{ resultInterfaceImplId.data.params }}</ElText>
                     </el-form-item>
                 </el-col>
             </el-row>
@@ -55,7 +55,7 @@ defineExpose({ initAndShow })
             <el-row>
                 <el-col>
                     <el-form-item label="请求体">
-                        <ElText>{{ resultInterfaceImplId.data.headers }}</ElText>
+                        <ElText>{{ resultInterfaceImplId.data.json_body }}</ElText>
                     </el-form-item>
                 </el-col>
             </el-row>

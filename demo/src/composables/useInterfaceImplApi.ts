@@ -22,7 +22,7 @@ export const resultInterfaceImplId = ref<InterfaceDataId>({
         params: '',
         headers: '',
         json_body: '',
-        enabled: '',
+        enabled: 'string',
         description: '',
         main_collection_id: 0,
         main_collection_name: '',
