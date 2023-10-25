@@ -16,6 +16,10 @@ const useUserStore = defineStore('User', {
             } else {
                 ElMessage.error(`${res.data.message}`)
             }
+        },
+        logout() {
+            localStorage.removeItem('token')
+            ElMessage.success('退出登录成功')
         }
     },
     getters: {}

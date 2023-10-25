@@ -16,15 +16,18 @@
       </span>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item>个人中心</el-dropdown-item>
-          <el-dropdown-item divided>退出登录</el-dropdown-item>
+          <el-dropdown-item @click="($event) => (useRouter().replace({ path: '/userinfo' }))">个人中心</el-dropdown-item>
+          <el-dropdown-item @click="useUserStore().logout" divided>退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
   </el-header>
 </template>
 <script lang="ts" setup>
-import { isCollapse } from './isCollapse'
+import { useRouter } from 'vue-router';
+import { isCollapse } from './isCollapse';
+import useUserStore from "@/stores/modules/user";
+
 </script>
 
 <style scoped lang="scss">
