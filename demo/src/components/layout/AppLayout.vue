@@ -5,6 +5,7 @@
       <AppHeader />
       <el-main>
         <el-scrollbar>
+          <h1 v-show="$route.path === '/'">欢迎进入接口管理与测试系统</h1>
           <RouterView />
         </el-scrollbar>
       </el-main>

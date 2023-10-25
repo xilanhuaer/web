@@ -24,6 +24,17 @@ const submit = async (regData: Register) => {
         ElMessage.error(`${data.message}`)
     }
 }
+const reset = () => {
+    const resetData = {
+        account: '',
+        password: '',
+        code: '',
+        name: '',
+        phone: '',
+        email: ''
+    }
+    Object.assign(condition, resetData)
+}
 </script>
 <template >
     <el-card>
@@ -32,25 +43,28 @@ const submit = async (regData: Register) => {
         </template>
         <el-form label-position="top" label-width="100px" :model="condition" style="max-width: 460px">
             <el-form-item label="账号">
-                <el-input v-model="condition.account" />
+                <el-input v-model="condition.account" clearable />
             </el-form-item>
             <el-form-item label="密码">
-                <el-input v-model="condition.password" />
+                <el-input v-model="condition.password" clearable show-password />
             </el-form-item>
             <el-form-item label="邀请码">
-                <el-input v-model="condition.code" />
+                <el-input v-model="condition.code" clearable />
             </el-form-item>
             <el-form-item label="昵称">
-                <el-input v-model="condition.name" />
+                <el-input v-model="condition.name" clearable />
             </el-form-item>
             <el-form-item label="邮箱">
-                <el-input v-model="condition.email" />
+                <el-input v-model="condition.email" clearable />
             </el-form-item>
             <el-form-item label="联系方式">
-                <el-input v-model="condition.phone" />
+                <el-input v-model="condition.phone" clearable />
             </el-form-item>
-            <el-button @click="submit(condition)">注册</el-button>
         </el-form>
+        <span>
+            <el-button @click="reset">重置</el-button>
+            <el-button type="primary" @click="submit(condition)">注册</el-button>
+        </span>
     </el-card>
 </template>
 <style lang="scss" scoped>

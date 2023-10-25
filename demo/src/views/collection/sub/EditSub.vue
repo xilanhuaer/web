@@ -42,7 +42,7 @@ const submit = async () => {
         if (data.code === 200) {
             ElMessage.success('更新接口成功')
             dialogFormVisible.value = false
-            querySub
+            querySub()
         } else {
             ElMessage.error('更新接口失败')
         }
@@ -52,7 +52,7 @@ const submit = async () => {
         if (data.code === 200) {
             ElMessage.success('创建分组成功')
             dialogFormVisible.value = false
-            querySub
+            querySub()
         } else {
             ElMessage.error('创建分组失败')
         }

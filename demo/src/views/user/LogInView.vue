@@ -18,11 +18,6 @@ const submit = async (loginData: Login) => {
         })
     }
 }
-const checkRegister = () => {
-    router.replace({
-        path: '/register'
-    })
-}
 </script>
 <template >
     <el-card>
@@ -31,14 +26,14 @@ const checkRegister = () => {
         </template>
         <el-form label-position="top" label-width="100px" :model="condition" style="max-width: 460px">
             <el-form-item label="账号">
-                <el-input v-model="condition.account" />
+                <el-input v-model="condition.account" clearable />
             </el-form-item>
             <el-form-item label="密码">
-                <el-input v-model="condition.password" />
+                <el-input v-model="condition.password" clearable show-password />
             </el-form-item>
         </el-form>
         <span>
-            <el-button @click="checkRegister">注册</el-button>
+            <el-button @click="$router.replace({ path: '/register' })">注册</el-button>
             <el-button type="primary" @click="submit(condition)">登录</el-button>
         </span>
     </el-card>

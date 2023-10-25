@@ -8,6 +8,10 @@
         <SvgIcon name="collapse" width="20px" height="20px" />
       </el-icon>
     </el-icon>
+    <el-breadcrumb :separator-icon="ArrowRight" v-show="$route.fullPath != '/'">
+      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+      <ElBreadcrumbItem :to="{ path: $route.fullPath }">{{ $route.name }}</ElBreadcrumbItem>
+    </el-breadcrumb>
     <el-dropdown>
       <span class="el-dropdown-link">
         <div>
@@ -16,7 +20,7 @@
       </span>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item @click="($event) => (useRouter().replace({ path: '/userinfo' }))">个人中心</el-dropdown-item>
+          <el-dropdown-item @click="$router.replace({ path: '/userinfo' })">个人中心</el-dropdown-item>
           <el-dropdown-item @click="logout" divided>退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </template>
@@ -24,6 +28,7 @@
   </el-header>
 </template>
 <script lang="ts" setup>
+import { ArrowRight } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router';
 import { isCollapse } from './isCollapse';
 import useUserStore from "@/stores/modules/user";
@@ -42,6 +47,12 @@ const logout = () => {
 
   .el-icon {
     margin-top: 14px;
+  }
+
+  .el-breadcrumb {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 16px;
   }
 
   .el-dropdown {
