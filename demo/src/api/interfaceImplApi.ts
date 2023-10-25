@@ -22,7 +22,7 @@ type CreateInterfaceImpl = {
     main_collection_id: Number | undefined
     sub_collection_id: Number | undefined
 }
-type InterfaceImpl = {
+export type InterfaceImpl = {
     id: Number
     interface_id: Number
     interface_name: String
@@ -42,7 +42,7 @@ type InterfaceImpl = {
     updator: String
     created_at: String
     updated_at: String
-    deleted_at: String
+    deleted_at: null
 }
 type InterfaceImplListData = {
     list: InterfaceImpl[]

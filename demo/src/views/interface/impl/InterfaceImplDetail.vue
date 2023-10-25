@@ -11,92 +11,91 @@ defineExpose({ initAndShow })
 </script>
 <template>
     <el-dialog v-model="dialogFormVisible" align-center>
-        <el-form label-position="right" label-width="auto" :model="resultInterfaceImplId.data">
+        <el-form label-position="right" label-width="auto" :model="resultInterfaceImplId">
             <el-row>
                 <el-col :span="12">
                     <el-form-item label="实现名称：">
-                        <ElText>{{ resultInterfaceImplId.data.name }}</ElText>
+                        <ElText>{{ resultInterfaceImplId.name }}</ElText>
                     </el-form-item>
                 </el-col>
                 <el-col :span="12">
                     <el-form-item label="接口名称：">
-                        <ElText>{{ resultInterfaceImplId.data.interface_name }}</ElText>
+                        <ElText>{{ resultInterfaceImplId.interface_name }}</ElText>
                     </el-form-item>
                 </el-col>
             </el-row>
             <el-row>
                 <el-col :span="12">
                     <el-form-item label="接口路径：">
-                        <ElText>{{ resultInterfaceImplId.data.path }}</ElText>
+                        <ElText>{{ resultInterfaceImplId.path }}</ElText>
                     </el-form-item>
                 </el-col>
                 <el-col :span="12">
                     <el-form-item label="接口状态：">
-                        <el-switch :v-model="resultInterfaceImplId.data.enabled"
-                            style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949" active-value="1"
-                            inactive-value="0" :disabled="true" />
+                        <ElText v-if="resultInterfaceImplId.enabled === '1'">启用</ElText>
+                        <ElText v-else>禁用</ElText>
                     </el-form-item>
                 </el-col>
             </el-row>
             <el-row>
                 <el-col>
                     <el-form-item label="请求参数：">
-                        <ElText>{{ resultInterfaceImplId.data.params }}</ElText>
+                        <ElText>{{ resultInterfaceImplId.params }}</ElText>
                     </el-form-item>
                 </el-col>
             </el-row>
             <el-row>
                 <el-col>
                     <el-form-item label="请求头：">
-                        <ElText>{{ resultInterfaceImplId.data.headers }}</ElText>
+                        <ElText>{{ resultInterfaceImplId.headers }}</ElText>
                     </el-form-item>
                 </el-col>
             </el-row>
             <el-row>
                 <el-col>
                     <el-form-item label="请求体">
-                        <ElText>{{ resultInterfaceImplId.data.json_body }}</ElText>
+                        <ElText>{{ resultInterfaceImplId.json_body }}</ElText>
                     </el-form-item>
                 </el-col>
             </el-row>
             <el-row>
                 <el-form-item label="接口描述：">
-                    <ElText>{{ resultInterfaceImplId.data.description }}</ElText>
+                    <ElText>{{ resultInterfaceImplId.description }}</ElText>
                 </el-form-item>
             </el-row>
             <el-row>
                 <el-col :span="12">
                     <el-form-item label="主集合：">
-                        <ElText>{{ resultInterfaceImplId.data.main_collection_name }}</ElText>
+                        <ElText>{{ resultInterfaceImplId.main_collection_name }}</ElText>
                     </el-form-item>
                 </el-col>
                 <el-col :span="12">
                     <el-form-item label="子集合：">
-                        <ElText>{{ resultInterfaceImplId.data.sub_collection_name }}</ElText>
+                        <ElText>{{ resultInterfaceImplId.sub_collection_name }}</ElText>
                     </el-form-item>
                 </el-col>
             </el-row>
             <el-row>
                 <el-col :span="12">
                     <el-form-item label="创建人：">
-                        <ElText>{{ resultInterfaceImplId.data.creator }}</ElText>
+                        <ElText>{{ resultInterfaceImplId.creator }}</ElText>
                     </el-form-item>
                 </el-col>
                 <el-col :span="12">
                     <el-form-item label="创建时间：">
-                        <ElText>{{ resultInterfaceImplId.data.created_at }}</ElText>
+                        <ElText>{{ resultInterfaceImplId.created_at }}</ElText>
                     </el-form-item>
                 </el-col>
             </el-row>
             <el-row>
                 <el-col :span="12">
                     <el-form-item label="更新人：">
-                        <ElText>{{ resultInterfaceImplId.data.updator }}</ElText>
+                        <ElText>{{ resultInterfaceImplId.updator }}</ElText>
                     </el-form-item>
                 </el-col>
                 <el-col :span="12">
                     <el-form-item label="更新时间：">
-                        <ElText>{{ resultInterfaceImplId.data.updated_at }}</ElText>
+                        <ElText>{{ resultInterfaceImplId.updated_at }}</ElText>
                     </el-form-item>
                 </el-col>
             </el-row>
