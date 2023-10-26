@@ -1,8 +1,11 @@
+<script lang="ts" setup>
+import { isCollapse } from './isCollapse'
+</script>
 <template>
   <el-aside width="auto">
     <el-row>
       <el-col>
-        <el-menu :default-active="$route.fullPath" :collapse="isCollapse" active-text-color="#ffd04b"
+        <el-menu :default-active="$route.path" :collapse="isCollapse" active-text-color="#ffd04b"
           background-color="#545c64" text-color="#fff" router unique-opened>
           <el-menu-item index="1" route="/">
             <el-icon>
@@ -17,13 +20,13 @@
               </el-icon>
               <span>个人中心</span>
             </template>
-            <el-menu-item index="5-1" route="/register">
+            <el-menu-item index="/register" route="/register">
               <el-icon>
                 <SvgIcon name="register" fill="white" />
               </el-icon>
               <span>用户注册</span>
             </el-menu-item>
-            <el-menu-item index="5-2" route="/login">
+            <el-menu-item index="/login" route="/login">
               <el-icon>
                 <SvgIcon name="login" fill="white" />
               </el-icon>
@@ -90,13 +93,9 @@
     </el-row>
   </el-aside>
 </template>
-<script lang="ts" setup>
-import { isCollapse } from './isCollapse'
-</script>
 <style lang="scss" scoped>
 .el-menu {
   border-right: none;
-  // width: 200px;
 }
 
 .el-aside {
