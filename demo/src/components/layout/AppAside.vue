@@ -2,8 +2,8 @@
   <el-aside width="auto">
     <el-row>
       <el-col>
-        <el-menu :collapse="isCollapse" active-text-color="#ffd04b" background-color="#545c64" text-color="#fff" router
-          unique-opened>
+        <el-menu :default-active="$route.fullPath" :collapse="isCollapse" active-text-color="#ffd04b"
+          background-color="#545c64" text-color="#fff" router unique-opened>
           <el-menu-item index="1" route="/">
             <el-icon>
               <SvgIcon name="home" fill="white" />
