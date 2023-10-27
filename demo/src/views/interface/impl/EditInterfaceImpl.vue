@@ -32,7 +32,7 @@ const initDialog = async (id: number) => {
     if (id) {
         msgText.value = '更新'
         await queryInterfaceImplId(id)
-        Object.assign(form, resultInterfaceImplId.value.data)
+        Object.assign(form, resultInterfaceImplId.value)
     } else {
         isCreate.value = true
         msgText.value = '新建'

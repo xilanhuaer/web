@@ -6,47 +6,47 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: '主页',
+      name: 'Home',
       component: AppLayout,
       children: [
         {
           path: '/interface',
-          name: '接口列表',
+          name: 'interface',
           component: () => import('@/views/interface/base/InterfaceView.vue')
         },
         {
           path: '/interfaceImpl',
-          name: '接口实现',
+          name: 'interfaceimpl',
           component: () => import('@/views/interface/impl/InterfaceImplView.vue')
         },
         {
           path: '/main_collection',
-          name: '主集合',
+          name: 'main_collection',
           component: () => import('@/views/collection/main/MainCollectionView.vue')
         },
         {
           path: '/sub_collection',
-          name: '子集合',
+          name: 'sub_collection',
           component: () => import('@/views/collection/sub/SubCollectionView.vue')
         },
         {
           path: '/config',
-          name: '配置管理',
+          name: 'config',
           component: () => import('@/views/config/ConfigView.vue')
         },
         {
           path: '/register',
-          name: '注册',
+          name: 'register',
           component: () => import('@/views/user/RegisterView.vue')
         },
         {
           path: '/login',
-          name: '登录',
+          name: 'login',
           component: () => import('@/views/user/LogInView.vue')
         },
         {
           path: '/userinfo',
-          name: '个人中心',
+          name: 'userinfo',
           component: () => import('@/views/user/UserInfoView.vue')
         }
       ]
