@@ -20,13 +20,13 @@ import { isCollapse } from './isCollapse'
               </el-icon>
               <span>个人中心</span>
             </template>
-            <el-menu-item index="/register" route="/register">
+            <el-menu-item index="5-1" route="/register">
               <el-icon>
                 <SvgIcon name="register" fill="white" />
               </el-icon>
               <span>用户注册</span>
             </el-menu-item>
-            <el-menu-item index="/login" route="/login">
+            <el-menu-item index="5-2" route="/login">
               <el-icon>
                 <SvgIcon name="login" fill="white" />
               </el-icon>
