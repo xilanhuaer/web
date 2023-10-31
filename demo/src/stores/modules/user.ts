@@ -5,6 +5,7 @@ const useUserStore = defineStore('User', {
     state: () => {
         return {
             token: '',
+            username: ''
         }
     },
     actions: {
@@ -12,7 +13,9 @@ const useUserStore = defineStore('User', {
             const res = await login(data)
             if (res.data.code === 200) {
                 this.token = 'Bearer ' + res.data.data.token
+                this.username = '' + res.data.data.name
                 localStorage.setItem('token', `Bearer ${res.data.data.token}`)
+                localStorage.setItem('username', `${res.data.data.name}`)
                 return res.data.code
             } else {
                 ElMessage.error(`${res.data.message}`)
@@ -20,6 +23,7 @@ const useUserStore = defineStore('User', {
         },
         logout() {
             localStorage.removeItem('token')
+            localStorage.removeItem('username')
             ElMessage.success('退出登录成功')
         }
     },
