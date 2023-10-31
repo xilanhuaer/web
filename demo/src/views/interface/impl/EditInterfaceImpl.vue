@@ -124,7 +124,7 @@ defineExpose({
                             placeholder="输入主集合名称搜索" :remote-method="mainCollections" :loading="loading">
                             <el-option v-show="resultMain.data.total > 0" v-for="item in resultMain.data.list"
                                 :key="item.id" :label="item.name" :value="item.id"
-                                @click="($event) => (querySub({ 'main_collection_id': item.id, 'enabled': '1' }))" />
+                                @click="querySub({ 'main_collection_id': item.id, 'enabled': '1' })" />
                         </el-select>
                     </el-form-item>
                 </el-col>

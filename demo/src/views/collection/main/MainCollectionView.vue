@@ -46,24 +46,15 @@ const showMain = ref<InstanceType<typeof ShowMain> | null>()
     <el-table :data="resultMain.data.list" style="width: 100%" show-overflow-tooltip>
       <el-table-column fixed prop="id" label="id" width="60px" align="center">
         <template #default="{ row }">
-          <el-link
-            :underline="false"
-            type="primary"
-            @click="($event) => showMain?.initMainIdData(row.id)"
-            >{{ row.id }}</el-link
-          >
+          <el-link :underline="false" type="primary" @click="($event) => showMain?.initMainIdData(row.id)">{{ row.id
+          }}</el-link>
         </template>
       </el-table-column>
       <el-table-column prop="name" label="分组名称" width="auto" align="center" />
       <el-table-column prop="enabled" label="状态" width="auto" align="center">
         <template #default="{ row }">
-          <el-switch
-            v-model="row.enabled"
-            style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
-            active-value="1"
-            inactive-value="0"
-            @click="enable(row.id, row.enabled)"
-          />
+          <el-switch v-model="row.enabled" style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
+            active-value="1" inactive-value="0" @click="enable(row.id, row.enabled)" />
         </template>
       </el-table-column>
       <el-table-column prop="description" label="分组描述" width="auto" align="center" />
@@ -77,16 +68,9 @@ const showMain = ref<InstanceType<typeof ShowMain> | null>()
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination
-      v-model:current-page="condition.page"
-      v-model:page-size="condition.page_size"
-      :page-sizes="[5, 10, 15, 20]"
-      :background="true"
-      layout="sizes, prev, pager, next"
-      :total="resultMain.data.total"
-      @current-change="($even) => queryMain(condition)"
-      @size-change="($event) => queryMain(condition)"
-    />
+    <el-pagination v-model:current-page="condition.page" v-model:page-size="condition.page_size"
+      :page-sizes="[5, 10, 15, 20]" :background="true" layout="sizes, prev, pager, next" :total="resultMain.data.total"
+      @current-change="queryMain(condition)" @size-change="queryMain(condition)" />
     <edit-main ref="editMain" />
     <show-main ref="showMain" />
   </el-card>

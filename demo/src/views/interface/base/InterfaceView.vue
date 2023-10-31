@@ -90,7 +90,7 @@ const showInterface = ref<InstanceType<typeof ShowInterface> | null>()
     </el-table>
     <el-pagination v-model:current-page="condition.page" v-model:page-size="condition.page_size"
       :page-sizes="[5, 10, 15, 20]" :background="true" layout="sizes, prev, pager, next" :total="result.data.total"
-      @current-change="($even) => queryInterfaces(condition)" @size-change="($event) => queryInterfaces(condition)" />
+      @current-change="queryInterfaces(condition)" @size-change="queryInterfaces(condition)" />
     <show-interface ref="showInterface" />
     <edit-interface ref="editInterface" />
   </el-card>

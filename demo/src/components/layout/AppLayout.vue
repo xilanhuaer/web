@@ -5,10 +5,8 @@
       <AppHeader />
       <el-main>
         <el-scrollbar>
-          <el-watermark :content="name">
-            <h1 v-show="$route.path === '/'">欢迎进入接口管理与测试系统</h1>
-            <RouterView />
-          </el-watermark>
+          <h1 v-show="$route.path === '/'">欢迎进入接口管理与测试系统</h1>
+          <RouterView />
         </el-scrollbar>
       </el-main>
     </el-container>
@@ -18,8 +16,6 @@
 <script lang="ts" setup>
 import AppHeader from './AppHeader.vue'
 import AppAside from './AppAside.vue'
-
-const name = localStorage.getItem("username")
 </script>
 
 <style lang="scss" scoped>
